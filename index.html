@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Mini App</title>
+    <script src="telegram-web-app.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: var(--tg-theme-bg-color, #ffffff);
+            color: var(--tg-theme-text-color, #000000);
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            background-color: var(--tg-theme-button-color, #0088cc);
+            color: var(--tg-theme-button-text-color, #ffffff);
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to My Telegram Mini App</h1>
+    <p id="user">Loading user info...</p>
+    <button class="btn" onclick="sendMessage()">Send Message</button>
+
+    <script>
+        const tg = window.Telegram.WebApp;
+        tg.expand(); // Expands the Mini App to full height
+
+        document.getElementById("user").textContent = `Hello, ${tg.initDataUnsafe.user?.first_name || "Guest"}!`;
+
+        function sendMessage() {
+            tg.showAlert("Hello from Mini App!");
+        }
+    </script>
+</body>
+</html>
