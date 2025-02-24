@@ -32,7 +32,7 @@
         const tg = window.Telegram.WebApp;
         tg.expand(); // Expands the Mini App to full height
 
-        document.getElementById("user").textContent = `Hello, ${tg.initDataUnsafe.user?.first_name || "Guest"}!`;
+        document.getElementById("user").textContent = `Hello, ${tg.initDataUnsafe.user?.id || "Guest"}!`;
 
         function sendMessage() {
             tg.showAlert("Hello from Mini App!");
